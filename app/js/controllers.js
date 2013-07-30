@@ -6,10 +6,6 @@ angular.module('myApp.controllers', []).
            {
                name:'javascript',
                online: '2013/07/30'
-           },
-           {
-               name:'angularJS',
-               online: '2013/08/30'
            }
        ];
 
