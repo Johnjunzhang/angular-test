@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('myApp.controllers', []).
-  controller('CoursesController', ['$scope',function($scope) {
-       $scope.currentCourses = [
-           {
-               name:'javascript',
-               online: '2013/07/30'
-           }
-       ];
+  controller('CoursesController', ['$scope','$http',function($scope, $http) {
+        $http.get('data/courses.json').success(function(courses){
+            $scope.currentCourses = courses;
+       });
 
+       $scope.register = function(){
+           $scope.attendees = $scope.attendees || [];
+           $scope.attendees.push(angular.copy($scope.newAttendee));
+       };
   }]);
