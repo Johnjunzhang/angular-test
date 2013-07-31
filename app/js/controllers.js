@@ -6,8 +6,8 @@ angular.module('myApp.controllers', []).
             $scope.currentCourses = courses;
        });
 
-       $scope.register = function(){
+       $scope.register = function(attendee){
            $scope.attendees = $scope.attendees || [];
-           $scope.attendees.push(angular.copy($scope.newAttendee));
+           $scope.attendees.push(angular.copy(attendee));
        };
   }]);
