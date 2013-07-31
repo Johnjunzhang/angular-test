@@ -1,9 +1,9 @@
 'user strict';
 
 
-angular.module('myApp.directives', [])
-    .directive('appVersion', function(){
+angular.module('myApp.directives', ['myApp.services'])
+    .directive('appVersion', ['app',function(app){
         return function(scope, element, attr){
-            element.text('1.0.0');
+            element.text(app.version);
         };
-    });
+    }]);
