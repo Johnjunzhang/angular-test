@@ -11,7 +11,7 @@
             <td>{{course.online}}</td>
             <td>
                 <ul>
-                    <li ng-repeat="attendee in attendees | filter: course.name">{{attendee.name}}</li>
+                    <li ng-repeat="attendee in attendees | filter: course.name">{{attendee | attendeeDisplayName}}</li>
                 </ul>
             </td>
         </tr>
@@ -24,6 +24,10 @@
         <div>
          <label for="name">Your Name:</label>
          <input id="name" type="text" ng-model="newAttendee.name"/>
+        </div>
+        <div>
+            <label for="email">Your Email:</label>
+            <input id="email" type="text" ng-model="newAttendee.email"/>
         </div>
         <div>
             <label for="course">Course:</label>
