@@ -25,6 +25,5 @@ describe('my app', function() {
       expect(element('span:first').text()).
         toMatch(/1.0.0/);
     });
-
   });
 });
