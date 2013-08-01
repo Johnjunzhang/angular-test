@@ -17,7 +17,6 @@ angular.module('myApp.directives', ['myApp.services'])
             restrict: 'E',
             require: 'ngModel',
             link: function (scope, element, attr, ngModel) {
-                var currentFormat = "dd-mm-yy";
                 element.bind('change input keyup', function(){
                     scope.$apply(setModelValue);
                 });
@@ -30,6 +29,9 @@ angular.module('myApp.directives', ['myApp.services'])
                 ngModel.$parsers.push(function(value){
                     var isValid = value.match(/[0-9]{2}-[0-9]{2}-[0-9]{2}$/);
                     ngModel.$setValidity('date',isValid);
+                    if(isValid) {
+                        return value;
+                    }
                 });
             }
         };
