@@ -4,7 +4,10 @@
 angular.module('myApp.directives', ['myApp.services'])
     .directive('appVersion', ['app',function(app){
         return function(scope, element, attr){
-            element.text(app.version);
+            app.then(function(response){
+                var appConfig = response.data;
+                element.text(appConfig.version);
+            });
         };
     }])
     .directive('date',function(){
