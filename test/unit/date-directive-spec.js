@@ -13,4 +13,5 @@ describe('date', function(){
 
         expect($rootScope.newAttendee.date).toEqual('11-11-11');
     }));
+
 });
