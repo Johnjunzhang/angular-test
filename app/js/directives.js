@@ -4,7 +4,7 @@
 angular.module('myApp.directives', ['myApp.services'])
     .directive('appVersion', ['app',function(app){
         return function(scope, element, attr){
-            app.then(function(response){
+            app.get().then(function(response){
                 var appConfig = response.data;
                 element.text(appConfig.version);
             });
