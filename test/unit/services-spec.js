@@ -17,9 +17,9 @@ describe('app service', function(){
 
     it('should get app', inject(function($httpBackend, app){
 
-        $httpBackend.whenGET(/app.json/).respond({version:'TEST_VER'});
+        $httpBackend.whenGET(/app/).respond({version:'TEST_VER'});
 
-        var promise = app;
+        var promise = app.get();
         promise.then(function(response){
             expect(response.data.version).toEqual('TEST_VER');
         });
