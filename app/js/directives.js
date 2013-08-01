@@ -30,6 +30,9 @@ angular.module('myApp.directives', ['myApp.services'])
                 ngModel.$parsers.push(function(value){
                     var isValid = value.match(/[0-9]{2}-[0-9]{2}-[0-9]{2}$/);
                     ngModel.$setValidity('date',isValid);
+                    if(isValid) {
+                        return value;
+                    }
                 });
             }
         };
