@@ -20,4 +20,3 @@ Learn how to inject a mock service
 
 Env:
    Webstorm; node; karma;
-   Repo:  https://github.com/xianjing/angular-test
