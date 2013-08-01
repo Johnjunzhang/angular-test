@@ -4,7 +4,7 @@
 angular.module('myApp.directives', ['myApp.services'])
     .directive('appVersion', ['app',function(app){
         return function(scope, element, attr){
-            app.then(function(response){
+            app.get().then(function(response){
                 var appConfig = response.data;
                 element.text(appConfig.version);
             });
@@ -18,13 +18,11 @@ angular.module('myApp.directives', ['myApp.services'])
             require: 'ngModel',
             link: function (scope, element, attr, ngModel) {
                 var currentFormat = "dd-mm-yy";
-                element.bind('change input keyup', function(){
-                    scope.$apply(setModelValue);
-                });
 
                 function setModelValue(){
                     ngModel.$setViewValue(element.val());
                 }
+
                 setModelValue();
 
                 ngModel.$parsers.push(function(value){
