@@ -2,7 +2,18 @@
 
 describe('app service', function(){
 
-    beforeEach('myApp.services');
+    beforeEach(module('myApp.services'));
+
+    it('should get app', inject(function($httpBackend, app){
+
+        $httpBackend.whenGET(/app/).respond({version:'TEST_VER'});
+
+        var promise = app.get();
+        promise.then(function(response){
+           expect(response.data.version).toEqual('TEST_VER');
+        });
+        $httpBackend.flush();
+    }));
 
     it('should get app', inject(function($httpBackend, app){
 
@@ -10,7 +21,9 @@ describe('app service', function(){
 
         var promise = app;
         promise.then(function(response){
-           expect(response.data.version).toEqual('TEST_VER');
+            expect(response.data.version).toEqual('TEST_VER');
         });
+
+        $httpBackend.flush();
     }));
 });
